@@ -35,8 +35,8 @@ func CountWords(response http.ResponseWriter, request *http.Request) {
 	}
 
 	type kv struct {
-		Key   string
-		Value int
+		Word  string
+		Count int
 	}
 
 	var ss []kv
@@ -45,7 +45,7 @@ func CountWords(response http.ResponseWriter, request *http.Request) {
 	}
 
 	sort.Slice(ss, func(i, j int) bool {
-		return ss[i].Value > ss[j].Value
+		return ss[i].Count > ss[j].Count
 	})
 
 	//assigning most highest array value to ss
